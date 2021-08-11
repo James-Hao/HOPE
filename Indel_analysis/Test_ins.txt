@@ -1,0 +1,6 @@
+Ins_Ref_idx	Length_ins(bp)	c_Reads	Ins_seq
+139	1	70	G
+33	2	1	TC
+181	2	1	AG
+154	1	1	A
+15	1	1	G
