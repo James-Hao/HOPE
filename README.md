@@ -112,3 +112,16 @@ The off-target efficiencies for each site could be calculated as descripted abov
 
 The R script here shows a example for calculating the off-target BG ratio. The input “.bmat” file contain the information of substitution, insertion, deletion and ambigious statistal reads information for each index of amplicon reference, which could be found in Detect-seq pipeline (http://detect-seq.com/).
 
+```bash
+chr_name	chr_index	ref_base	A	G	C	T	del_count	insert_count	ambiguous_count	deletion	insertion	ambiguous	mut_num
+F-AS-MIS3-10	1	G	0	342389	0	0	0	0	0	.	.	.	0
+F-AS-MIS3-10	2	G	0	342388	0	0	0	0	0	.	.	.	0
+F-AS-MIS3-10	3	A	342392	0	0	0	0	0	0	.	.	.	0
+F-AS-MIS3-10	4	G	0	342392	0	0	0	0	0	.	.	.	0
+F-AS-MIS3-10	5	A	342392	0	0	0	0	0	0	.	.	.	0
+F-AS-MIS3-10	6	G	0	342391	0	0	0	0	0	.	.	.	0
+F-AS-MIS3-10	7	A	342392	0	0	0	0	0	0	.	.	.	0
+F-AS-MIS3-10	8	T	0	0	0	342386	0	0	0	.	.	.	0
+F-AS-MIS3-10	9	G	0	342392	0	0	1	8	0	AC	A,A,A,A,A,A,A,A	.	0
+```
+

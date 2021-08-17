@@ -13,7 +13,7 @@ cal_bg <- function(lib,sample,nick,size){
   return(list("BG"=bg,"BG_file"=bmat_f_bg))
 }
 
-Res <- cal_bg(lib="FANCF-off-PE3-rep3",sample = "F-AS-mis3-10",nick = 164,size = 25)
+Res <- cal_bg(lib="FANCF-off-HOPE-rep3",sample = "F-AS-mis3-10",nick = 164,size = 25)
 Res$BG
 Res_f <- test$BG_file
 write_csv(Res_f,file = "Test.csv")
