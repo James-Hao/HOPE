@@ -1,5 +1,5 @@
 # HOPE
-**HOPE** (**ho**mologous 3’ extension mediated <u>p</u>rime <u>e</u>ditor) utilizes paired prime editing guide RNAs (pegRNAs) encoding the same edits in both sense and antisense DNA strands to achieve high editing efficiency in  human HEK293T cells as well as mismatch repair (MMR)-deficient HCT116 cells
+**HOPE** (`ho`mologous 3’ extension mediated `p`rime `e`ditor) utilizes paired prime editing guide RNAs (pegRNAs) encoding the same edits in both sense and antisense DNA strands to achieve high editing efficiency in  human HEK293T cells as well as mismatch repair (MMR)-deficient HCT116 cells
 
 <img src="https://i.loli.net/2021/08/12/oeTBOfb1kCLDlGw.png" alt="image-20210812193249364" style="zoom:40%;" />
 
@@ -9,7 +9,7 @@
 
 The desired editing efficiency of HOPE (substitution/insertion/deletion) were calculated by CRISPResso2 (https://github.com/pinellolab/CRISPResso2), which is designed to enable rapid and intuitive interpretation of genome editing experiments, comprehensively and powerfully.
 
-Herein, we use CRISPResso2 to calculate the efficiency for substitution and insertion/deletion with “PE (Prime-edited) mode” and “HDR mode”, respectively.
+Herein, we use CRISPResso2 to calculate the efficiency for substitution and insertion/deletion with `“PE (Prime-edited) mode”` and `“HDR mode”`, respectively.
 
 The analysis of substitution events needs following parameters: “—prime editing pegRNA spacer seq”, “—prime editing pegRNA extension seq”, “—prime editing pegRNA scaffold seq”, “—prime editing nicking guide seq”. Specifically, for insertions and deletions, the HDR amplicon sequence was used as HDR reference with “-e” parameter, and “—prime editing pegRNA spacer seq”, “—prime editing nicking guide seq” were also needed. And “—discard indel reads” parameter was used for the calculation of the substitution, insertion, and deletion events, while “—ignore substitutions” was used for calculation of undesired indel type. The precise editing frequencies were calculated based on the “CRISPResso quantification of editing frequency” files that were obtained from CRISPResso2. The corresponding formulas are shown below:
 $$
@@ -66,7 +66,7 @@ python HOPE_indel_analysis.py -ifa Test_ref.fa -iat Test_allele_filt.txt \
   	-del Test_del.txt
 ```
 
-The script needs two inputs. The "-ifa" parameter is the input of the corresponding amplicon sequence, and the "-iat" is the input filtered from the "Alleles_frequency_table.txt" file analyzed by CRISPResso2. For example, in PE mode, select the table after filting "Primed-edited" and "Modified" as input, for example:
+The script needs two inputs. The ``"-ifa"`` parameter is the input of the corresponding amplicon sequence, and the ``"-iat"`` is the input filtered from the "Alleles_frequency_table.txt" file analyzed by CRISPResso2. For example, in PE mode, select the table after filting "Primed-edited" and "Modified" as input, for example:
 
 ```bash
 Aligned_Sequence	Reference_Sequence	Reference_Name	Read_Status	n_deleted	n_inserted	n_mutated	#Reads	%Reads
@@ -140,7 +140,7 @@ The off-target efficiencies for each site could be calculated as descripted abov
 
 The R script here shows a example for calculating the off-target BG ratio. The input “.bmat” file contain the information of substitution, insertion, deletion and ambigious statistal reads information for each index of amplicon reference, which could be found in Detect-seq pipeline (http://detect-seq.com/).
 
-The .bmat file looks like:
+The `“.bmat”` file looks like:
 
 ```bash
 chr_name	chr_index	ref_base	A	G	C	T	del_count	insert_count	ambiguous_count	deletion	insertion	ambiguous	mut_num
