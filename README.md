@@ -16,13 +16,13 @@ $$
 \text { Substitution ratio }=\frac{\text { [\# Unmodified reads (Prime - edited amplicon)] }}{[\# \text { Reads aligned all amplicons }]} \times 100 \%
 $$
 
-$$ {$$}
+$$
 \text { Insertion or Deletion ratio }=\frac{\text { [\# Unmodified reads (HDR amplicon) }]}{[\# \text { Reads aligned all amplicons }]} \times 100 \%
-$$ {$$}
+$$
 
-$$ {$$}
+$$
 \text { Indel ratio }=\frac{\text { [\# Modified reads (corresponding targeted amplicon)] }}{[\text {\# Reads aligned corresponding targeted amplicon] }} \times 100 \%
-$$ {$$}
+$$
 
 
 
