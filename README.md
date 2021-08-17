@@ -30,7 +30,35 @@ $$
 
 In order to evaluate the undesired indel after editing by HOPE, the indeL level of each editing result needs to be evaluated. We carry out the indel analysis with “HOPE_indel_analysis.py” (Python3).
 
-```python
+For help info, please run `python HOPE_indel_analysis.py -h`:
+
+```bash
+$python HOPE_indel_analysis.py -h
+
+usage: HOPE_indel_analysis.py [-h] -ifa INPUT_FASTA -iat INPUT_ALLELE_TABLE -event_indel OUTPUT_EVENT_INDEL -idx_indel OUTPUT_IDX_INDEL -ins
+                              OUTPUT_INS_INFO -del OUTPUT_DEL_INFO
+
+Get all the related insertions and deletions information based on the CRISPResso2 allele table result file
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -ifa INPUT_FASTA, --input_fasta INPUT_FASTA
+                        The input reference fasta file
+  -iat INPUT_ALLELE_TABLE, --input_allele_table INPUT_ALLELE_TABLE
+                        The input CRISPResso2 allele table file
+  -event_indel OUTPUT_EVENT_INDEL, --output_event_indel OUTPUT_EVENT_INDEL
+                        Output each reference index exist event position plus total indel information
+  -idx_indel OUTPUT_IDX_INDEL, --output_idx_indel OUTPUT_IDX_INDEL
+                        Output the only the idx indel info, not plus each idx
+  -ins OUTPUT_INS_INFO, --output_ins_info OUTPUT_INS_INFO
+                        Output each insertion event position, length and count
+  -del OUTPUT_DEL_INFO, --output_del_info OUTPUT_DEL_INFO
+                        Output each deletion event position, length and count
+```
+
+Test example command for calculate indel analysis results.
+
+```bash
 python HOPE_indel_analysis.py -ifa Test_ref.fa -iat Test_allele_filt.txt \
 	-event_indel Test_event_indel.txt \
   	-idx_indel Test_idx_indel.txt \
@@ -111,6 +139,8 @@ idx	ins_count	del_count
 The off-target efficiencies for each site could be calculated as descripted above. In order to evaluate the efficiency of off-target, we need to calculate the corresponding background efficiency according to the sites. Here, we choose to remove origin and terminal 15bp of low sequencing quality of the amplicon reference, and remove 25bp before and after around the editing site. Left region used as the background for BG efficiency calculation. Then the editing efficiency of the background is calculated after removing more than 10% of the edits if exsit (which is considered to be SNP) in BG region.
 
 The R script here shows a example for calculating the off-target BG ratio. The input “.bmat” file contain the information of substitution, insertion, deletion and ambigious statistal reads information for each index of amplicon reference, which could be found in Detect-seq pipeline (http://detect-seq.com/).
+
+The .bmat file looks like:
 
 ```bash
 chr_name	chr_index	ref_base	A	G	C	T	del_count	insert_count	ambiguous_count	deletion	insertion	ambiguous	mut_num
