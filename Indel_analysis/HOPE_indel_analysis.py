@@ -311,7 +311,7 @@ if __name__ == '__main__':
     out_indel_info = open(out_event_indel,"w")
     out_indel_info.write("Idx"+"\t"+"Event_type"+"\t"+"c_Reads"+"\n")
 
-    print(len(ref_idx_indel))
+    #print(len(ref_idx_indel))
     for i in ref_idx_indel.keys():
         if int(i.split("_")[0]) <= len(ref_idx_indel)/2:
             if int(i.split("_")[0]) == 1:
