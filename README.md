@@ -138,7 +138,7 @@ idx	ins_count	del_count
 
 The off-target efficiencies for each site could be calculated as descripted above. In order to evaluate the efficiency of off-target, we need to calculate the corresponding background efficiency according to the sites. Here, we choose to remove origin and terminal 15bp of low sequencing quality of the amplicon reference, and remove 25bp before and after around the editing site. Left region used as the background for BG efficiency calculation. Then the editing efficiency of the background is calculated after removing more than 10% of the edits if exsit (which is considered to be SNP) in BG region.
 
-The R script in folder shows a example for calculating the off-target BG ratio. The input “.bmat” file contain the information of substitution, insertion, deletion and ambigious statistal reads information for each index of amplicon reference, which could be found in Detect-seq pipeline (http://detect-seq.com/).
+The R script in folder shows an example for calculating the off-target BG ratio. The input “.bmat” file contain the information of substitution, insertion, deletion and ambigious statistal reads information for each index of amplicon reference, which could be found in Detect-seq pipeline (http://detect-seq.com/).
 
 The `“.bmat”` file looks like:
 
