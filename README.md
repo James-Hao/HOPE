@@ -32,10 +32,10 @@ In order to evaluate the undesired indel after editing by HOPE, the indeL level 
 
 ```python
 python HOPE_indel_analysis.py -ifa Test_ref.fa -iat Test_allele_filt.txt \
-					-event_indel Test_event_indel.txt \
-					-idx_indel Test_idx_indel.txt \
-					-ins Test_ins.txt \
-					-del Test_del.txt
+	-event_indel Test_event_indel.txt \
+  -idx_indel Test_idx_indel.txt \
+  -ins Test_ins.txt \
+  -del Test_del.txt
 ```
 
 The script needs two inputs. The "-ifa" parameter is the input of the corresponding amplicon sequence, and the "-iat" is the input filtered from the "Alleles_frequency_table.txt" file analyzed by CRISPResso2. For example, in PE mode, select the table after filting "Primed-edited" and "Modified" as input, for example:
