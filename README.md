@@ -7,9 +7,9 @@
 
 ## 1.Calculation of editing efficiency
 
-The desired editing efficiency of HOPE (substitution/insertion/deletion) were calculated by CRISPResso2 (https://github.com/pinellolab/CRISPResso2), which is designed to enable rapid and intuitive interpretation of genome editing experiments, comprehensively and powerfully.
+The desired editing efficiencies of `HOPE` (substitution/insertion/deletion) are calculated by CRISPResso2 (https://github.com/pinellolab/CRISPResso2), a software designed to enable rapid and intuitive interpretation of genome editing experiments.
 
-Herein, we use CRISPResso2 to calculate the efficiency for substitution and insertion/deletion with `“PE (Prime-edited) mode”` and `“HDR mode”`, respectively.
+Herein, we use CRISPResso2 to calculate the efficiencies of desired substitution and insertion/deletion with `“PE (Prime-edited) mode”` and `“HDR mode”`, respectively.
 
 The analysis of substitution events needs following parameters: “—prime editing pegRNA spacer seq”, “—prime editing pegRNA extension seq”, “—prime editing pegRNA scaffold seq”, “—prime editing nicking guide seq”. Specifically, for insertions and deletions, the HDR amplicon sequence was used as HDR reference with “-e” parameter, and “—prime editing pegRNA spacer seq”, “—prime editing nicking guide seq” were also needed. And “—discard indel reads” parameter was used for the calculation of the substitution, insertion, and deletion events, while “—ignore substitutions” was used for calculation of undesired indel type. The precise editing frequencies were calculated based on the “CRISPResso quantification of editing frequency” files that were obtained from CRISPResso2. The corresponding formulas are shown below:
 $$
@@ -28,7 +28,7 @@ $$
 
 ## 2.Indel analysis of HOPE
 
-In order to evaluate the undesired indel after editing by HOPE, the indeL level of each editing result needs to be evaluated. We carry out the indel analysis with “HOPE_indel_analysis.py” (Python3).
+To evaluate the detailed undesired indel types of HOPE, we carry out the indel analysis with “HOPE_indel_analysis.py” (Python3).
 
 For help info, please run `python HOPE_indel_analysis.py -h`:
 
@@ -66,7 +66,7 @@ python HOPE_indel_analysis.py -ifa Test_ref.fa -iat Test_allele_filt.txt \
   	-del Test_del.txt
 ```
 
-The script needs two inputs. The ``"-ifa"`` parameter is the input of the corresponding amplicon sequence, and the ``"-iat"`` is the input filtered from the "Alleles_frequency_table.txt" file analyzed by CRISPResso2. For example, in PE mode, select the table after filting "Primed-edited" and "Modified" as input, for example:
+The script needs two inputs. The ``"-ifa"`` parameter is the input of the corresponding amplicon sequence, and the ``"-iat"`` is the input filtered from the ``"Alleles_frequency_table.txt" file analyzed by CRISPResso2. For example, filter the column” Reference_Name“ as ”Prime-edited“ and column ”Read_Status“ as ”MODIFIED“.
 
 ```bash
 Aligned_Sequence	Reference_Sequence	Reference_Name	Read_Status	n_deleted	n_inserted	n_mutated	#Reads	%Reads
@@ -77,7 +77,7 @@ CAGGTGAAGGTGTGGTTCCAGAACCGGAGGACAAAGTACAAACGGCAGAAGCTGGAGGAGGAAGGGCCTGAGTCCGAGCA
 CAGGTGAAGGTGTGGTTCCAGAACCGGAGGACAAAGTACAAACGGCAGAAGCTGGAGGAGGAAGGGCCTGAGTCCGAGCAGAAGAACAAGGGCTCCCATCA-----ACCGGTGGCGCATTGCCACGAAGCAGGCCAATGGGGAGGACATCGATGTCACCTCCAATGACTAGGGTGGGCAAC	CAGGTGAAGGTGTGGTTCCAGAACCGGAGGACAAAGTACAAACGGCAGAAGCTGGAGGAGGAAGGGCCTGAGTCCGAGCAGAAGAACAAGGGCTCCCATCACATCAACCGGTGGCGCATTGCCACGAAGCAGGCCAATGGGGAGGACATCGATGTCACCTCCAATGACTAGGGTGGGCAAC	Prime-edited	MODIFIED	5	0	0	65	0.0294727105371742
 ```
 
-The results of INDEL can be obtained through analysis, including the positions of insertion, length of insertion sequence, reads statistics and results of insertion sequence.
+The details of INDEL can be obtained through the pipeline which is mentioned above, including the positions of insertion, length of insertion sequence, reads statistics and insertion sequence.
 
 ```bash
 Ins_Ref_idx	Length_ins(bp)	c_Reads	Ins_seq
@@ -89,7 +89,7 @@ Ins_Ref_idx	Length_ins(bp)	c_Reads	Ins_seq
 ...
 ```
 
-Furthermore, you can also obtain the start and end positions of the deletion sequence, the deletion length, and the reads statistics.
+Furthermore, you can also obtain the start and end positions of the deletion sequence, deletion sequence length, and the reads statistics.
 
 ```bash
 Del_Ref_Start	Del_Ref_End	Length_del(bp)	c_Reads
@@ -136,9 +136,9 @@ idx	ins_count	del_count
 
 ## 3. Off-target analysis
 
-The off-target efficiencies for each site could be calculated as descripted above. In order to evaluate the efficiency of off-target, we need to calculate the corresponding background efficiency according to the sites. Here, we choose to remove origin and terminal 15bp of low sequencing quality of the amplicon reference, and remove 25bp before and after around the editing site. Left region used as the background for BG efficiency calculation. Then the editing efficiency of the background is calculated after removing more than 10% of the edits if exsit (which is considered to be SNP) in BG region.
+Cas-OFFinder (https://github.com/snugel/cas-offinder) is used to predict the off-target sites. The substitution or indel ratio at the predicted off-target editing sites, or a ± 25 bp region surrounding the off-target sites could be calculated as descripted above. Average substitution/indel ratios observed out of potential off-target editing regions (± 25 bp surrounding the predicted off-target sites) are defined as `“BackGround”` (excluding the ± 15 bp from the two side of the amplicon sequence). Note that SNPs are not taken into the calculation (serve as mutation ratio less than 10%).
 
-The R script in folder shows an example for calculating the off-target BG ratio. The input “.bmat” file contain the information of substitution, insertion, deletion and ambigious statistal reads information for each index of amplicon reference, which could be found in Detect-seq pipeline (http://detect-seq.com/).
+The R script shows an example for calculating the BG ratio. The input “.bmat” file contain the information of substitution, insertion, deletion and ambiguous statical reads for each location index of amplicon reference, which could be found in Detect-seq pipeline (http://detect-seq.com/).
 
 The `“.bmat”` file looks like:
 
