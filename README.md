@@ -136,7 +136,7 @@ idx	ins_count	del_count
 
 ## 3. Off-target analysis
 
-Cas-OFFinder (https://github.com/snugel/cas-offinder) is used to predict the off-target sites. The substitution or indel ratio at the predicted off-target editing sites, or a ± 25 bp region surrounding the off-target sites could be calculated as descripted above. Average substitution/indel ratios observed out of potential off-target editing regions (± 25 bp surrounding the predicted off-target sites) are defined as `“BackGround”` (excluding the ± 15 bp from the two side of the amplicon sequence). Note that SNPs are not taken into the calculation (serve as mutation ratio less than 10%).
+Cas-OFFinder (https://github.com/snugel/cas-offinder) is used to predict the off-target sites. The substitution or indel ratio at the predicted off-target editing sites, or a ± 25 bp region surrounding the off-target sites could be calculated as descripted above. Average substitution/indel ratios observed out of potential off-target editing regions (± 25 bp surrounding the predicted off-target sites) are defined as `“BackGround”` (excluding the ± 15 bp from the two side of the amplicon sequence). Note that SNPs are not taken into the calculation (SNP serve as mutation ratio more than 10%).
 
 The R script shows an example for calculating the BG ratio. The input “.bmat” file contain the information of substitution, insertion, deletion and ambiguous statical reads for each location index of amplicon reference, which could be found in Detect-seq pipeline (http://detect-seq.com/).
 
