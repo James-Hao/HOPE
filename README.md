@@ -13,15 +13,15 @@ Herein, we use CRISPResso2 to calculate the efficiencies of desired substitution
 
 The analysis of substitution events needs following parameters: “—prime editing pegRNA spacer seq”, “—prime editing pegRNA extension seq”, “—prime editing pegRNA scaffold seq”, “—prime editing nicking guide seq”. Specifically, for insertions and deletions, the HDR amplicon sequence was used as HDR reference with “-e” parameter, and “—prime editing pegRNA spacer seq”, “—prime editing nicking guide seq” were also needed. And “—discard indel reads” parameter was used for the calculation of the substitution, insertion, and deletion events, while “—ignore substitutions” was used for calculation of undesired indel type. The precise editing frequencies were calculated based on the “CRISPResso quantification of editing frequency” files that were obtained from CRISPResso2. The corresponding formulas are shown below:
 $$
-\text { Substitution ratio }=\frac{\text { [\# Unmodified reads (Prime - edited amplicon)] }}{[\text {\# Reads aligned all amplicons }]} \times 100 \%
+\text { Substitution ratio }=\frac{\text { [\# Unmodified reads (Prime - edited amplicon)] }}{[\text {\# Reads aligned all amplicons }]} \times \text{100 \%}
 $$
 
 $$
-\text { Insertion or Deletion ratio }=\frac{\text { [\# Unmodified reads (HDR amplicon) }]}{[\text {\# Reads aligned all amplicons }]} \times 100 \%
+\text { Insertion or Deletion ratio }=\frac{\text { [\# Unmodified reads (HDR amplicon) }]}{[\text {\# Reads aligned all amplicons }]} \times \text{100 \%}
 $$
 
 $$
-\text { Indel ratio }=\frac{\text { [\# Modified reads (corresponding targeted amplicon)] }}{[\text {\# Reads aligned corresponding targeted amplicon] }} \times 100 \%
+\text { Indel ratio }=\frac{\text { [\# Modified reads (corresponding targeted amplicon)] }}{[\text {\# Reads aligned corresponding targeted amplicon] }} \times \text{100 \%}
 $$
 
 
