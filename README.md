@@ -66,7 +66,7 @@ python HOPE_indel_analysis.py -ifa Test_ref.fa -iat Test_allele_filt.txt \
   	-del Test_del.txt
 ```
 
-The script needs two inputs. The ``"-ifa"`` parameter is the input of the corresponding amplicon sequence, and the ``"-iat"`` is the input filtered from the ``"Alleles_frequency_table.txt" file analyzed by CRISPResso2. For example, filter the column” Reference_Name“ as ”Prime-edited“ and column ”Read_Status“ as ”MODIFIED“.
+The script needs two inputs. The ``"-ifa"`` parameter is the input of the corresponding amplicon sequence, and the ``"-iat"`` is the input filtered from the "Alleles_frequency_table.txt" file analyzed by CRISPResso2. For example, filter the column” Reference_Name“ as ”Prime-edited“ and column ”Read_Status“ as ”MODIFIED“.
 
 ```bash
 Aligned_Sequence	Reference_Sequence	Reference_Name	Read_Status	n_deleted	n_inserted	n_mutated	#Reads	%Reads
