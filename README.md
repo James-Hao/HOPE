@@ -32,7 +32,7 @@ To evaluate the detailed undesired indel types of HOPE, we carry out the indel a
 
 For help info, please run `python HOPE_indel_analysis.py -h`:
 
-```bash
+```python
 $python HOPE_indel_analysis.py -h
 
 usage: HOPE_indel_analysis.py [-h] -ifa INPUT_FASTA -iat INPUT_ALLELE_TABLE -event_indel OUTPUT_EVENT_INDEL -idx_indel OUTPUT_IDX_INDEL -ins
@@ -58,7 +58,7 @@ optional arguments:
 
 Test example command for calculate indel analysis results.
 
-```bash
+```python
 python HOPE_indel_analysis.py -ifa Test_ref.fa -iat Test_allele_filt.txt \
 	-event_indel Test_event_indel.txt \
   	-idx_indel Test_idx_indel.txt \
